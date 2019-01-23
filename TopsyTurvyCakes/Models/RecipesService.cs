@@ -14,10 +14,10 @@ namespace TopsyTurvyCakes.Models
                 .UseInMemoryDatabase("TopsyTurvyCakes")
                 .Options;
 
-            _context = new RecipesDbContext(options);
+            _context = new RecipesDbContext(options); // linking our database _context into this service, method below
         }
 
-        public RecipesService(RecipesDbContext context)
+        public RecipesService(RecipesDbContext context)// that link
         {
             _context = context;
         }

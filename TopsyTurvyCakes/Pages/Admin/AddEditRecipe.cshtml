@@ -1,11 +1,32 @@
 ﻿@page "{id?}"
 @model AddEditRecipeModel
 @{
-    ViewData["Title"] = Model.IsNewRecipe ? "New Recipe" : "Edit Recipe"; //Model for AddEditRecipeModel above
+    //ViewData["Title"] = Model.IsNewRecipe ? "New Recipe" : "Edit Recipe"; //Model for AddEditRecipeModel above
+    var id = long.Parse((string)RouteData.Values["id"]);
+    var recipesService = new RecipesService(); // like the controller
+    var recipe = await recipesService.FindAsync(id); //a Recipe.cs object
 }
 
 <div asp-validation-summary="All"><p>Errors</p></div>
-<form method="post" class="form-horizontal">
+<form method="post" class="form-horizontal" enctype="multipart/form-data">
+
+    <!--
+        Images
+    -->
+    <div class="form-group">
+        <label asp-for="image" class="col-md-2 control-label">Image:</label>
+        <div class ="col-md-10">
+            <img class="img img-thumbnail" width="240" height="240" src="@recipe.GetInlineImageSrc()">
+
+            <input type="file" class="btn btn-default" asp-for="image">
+        </div>
+
+
+    </div>
+    <!--
+        END Image
+    -->
+
     <div class="form-group">
         <label asp-for="Recipe.Name" class="col-md-2 control-label"></label>
 
@@ -32,13 +53,14 @@
             <textarea rows="5" asp-for="Recipe.Directions" class="form-control"></textarea>
         </div>
     </div>
+
+
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <button type="submit" class="btn btn btn-primary">Save</button>
             <button type="submit" class="btn btn btn-danger" asp-page-handler="Delete">Delete</button>
 
         </div>
-
     </div>
 </form>
 <br /><br />

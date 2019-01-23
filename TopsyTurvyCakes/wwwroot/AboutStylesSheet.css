@@ -1,0 +1,48 @@
+﻿body {
+}
+
+.myImages {
+    height: 75%;
+    width: 75%;
+    border-radius:25px;
+}
+
+.backButton{
+    float:right;
+    color:black;
+    background-color:wheat;
+    border-color:cadetblue;
+    margin:15px;
+    
+
+}
+
+
+.myText{
+    color:black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:16px;
+    font-weight:normal;
+    word-spacing:3px;
+    
+   
+}
+
+.myList{
+    color:darkblue;
+    font-family: 'Franklin Gothic';
+    font-size:large;
+    border-top:groove;
+   
+    padding:15px;
+    
+}
+
+.borderForThings{
+    border: groove;
+    border-style:groove;
+    border-color:wheat;
+    margin:15px;
+    padding:15px;
+    border-radius:25px;
+}

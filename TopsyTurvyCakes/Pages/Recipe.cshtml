@@ -1,18 +1,20 @@
 ﻿@page "{id}"
 
-
 @{
-    
+
     var id = long.Parse((string)RouteData.Values["id"]);
     var recipesService = new RecipesService(); // like the controller
-    var recipe = await recipesService.FindAsync(id);
-    ViewData["Title"] = recipe.Name;
+    var recipe = await recipesService.FindAsync(id); //a Recipe.cs object
+    ViewData["Title"] = recipe.Name; //this is data passed onto the layout page @section "Title"
 }
 
 
 <div class="container">
+
     <div class="row recipe">
+        
         <div class="col-md-8">
+
             <div class="col-md-12">
                 <span class="description">
                     @recipe.Description
@@ -29,20 +31,28 @@
 
                 </ul>
             </div>
-            @foreach (var step in recipe.DirectionsList)
-            {
+           
                 <div class="directions col-md-8">
                     <h4>Directions</h4>
                     <ol>
-                        <li>@step/li>
-                    </ol>
-                </div>
-            }
+                        @foreach( var step in recipe.DirectionsList)
+                        {
+                            <li>@step</li>
 
+                        }
+                        
+                    </ol>
+                 </div>
+                <br /><br />
+            <a asp-page="Admin/AddEditRecipe" class="add-recipe btn btn-primary" asp-route-id="@recipe.Id"
+               style="float:left">Edit this Recipe</a>
         </div>
         <div class="col-md-4 text-right">
+
             <img class="img img-thumbnail" src="@recipe.GetInlineImageSrc()" />
+
         </div>
     </div>
 
 </div>
+<br /><br />

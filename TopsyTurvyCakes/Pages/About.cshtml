@@ -1,0 +1,63 @@
+﻿@page
+@model AboutModel
+@{
+}
+<link href="~/AboutStylesSheet.css" rel="stylesheet" />
+
+
+<div class="container-fluid">
+    
+    <div class="row">
+        <h1 class="text-center">About us!</h1>
+        <div class="col-md-3">
+            <a asp-page="/Index" class="add-recipe btn btn-primary backButton"
+               style="float:left"><-Back</a>
+            <img class="myImages" src="~/Images/20COOKING-ALMOND-CAKE1-threeByTwoMediumAt2X.jpg" />
+            <br /><br />
+            <img class="myImages" src="~/Images/cakescakescakes.jpg" />
+        </div>
+
+
+        <div class="col-md-6">
+            <h3>Steps to make a recipe</h3>
+            <ol>
+                <li class="myList">List of ingredients and how much of them</li>
+                <partial class="myText">
+                    What are you going to use?
+                    Ingredients are the food items going into what you're making
+                    List them in the order they are used. Make them clear so none are forgotten.
+                </partial>
+                <li class="myList">Step by step directions</li>
+                <partial class="myText">
+                    How are you going to put those things together?
+                    Number the steps. Put those steps in the order to make the recipe.
+
+                </partial>
+                <li class="myList">Equipment</li>
+                <partial class="myText">
+                    What items do you need to make it?
+                    Cooking equipment is like pans or pots. Much like ingredients list, list things you need.
+                    Cakes often call for a specfic size of pan.
+                </partial>
+
+
+            </ol>
+
+
+        </div>
+
+        <div class="col-md-3">
+            <p class="myText borderForThings">
+                For more information click
+                <a href="https://www.thekitchn.com/how-to-write-a-recipe-58522">here</a>
+
+                to learn more about making a recipe
+            </p>
+
+            <img class="myImages" src="~/Images/download (1).jpg" />
+        </div>
+
+    </div>
+
+</div>
+<br /><br />
